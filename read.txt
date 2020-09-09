@@ -1,1 +1,10 @@
 ana app clone a zoom con node.js
+-Imicializar nuesro prouyecto de node
+-inicializar nuestra primera vista
+-crear  un roomId
+-agregar la hanilidad de ver el video en la vista
+-agregar la hanilodad de permmitir a otros to entrar al stream
+-add estilos
+-agregar la sala de mensajes
+-agreagr boton mute
+-agreagr boton parar video
