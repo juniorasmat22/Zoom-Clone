@@ -1,0 +1,12 @@
+body{
+    background: rgb(241, 214, 214)211, 187, 187)
+
+}
+#video-grid{
+    display:flex;
+    justify-content: center;
+}
+video{
+    height: 300px;
+    width: 400px;
+}
