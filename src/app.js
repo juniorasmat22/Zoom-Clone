@@ -21,9 +21,14 @@ const server=app.listen(app.get('port'),()=>{
     console.log("Server on port ",app.get('port'));
 });
 const io=require('socket.io')(server);
+const {ExpressPeerServer}=require('peer');
+const peerServer=ExpressPeerServer(server,{
+    debug:true
+});
+app.use('/peerjs',peerServer);
 io.on('connection', socket => {
-    socket.on('join-room', (roomId) => {
+    socket.on('join-room', (roomId,userId) => {
         socket.join(roomId);
-        socket.to(roomId).broadcast.emit('user-connected');
+        socket.to(roomId).broadcast.emit('user-connected',userId);
     });
 });
