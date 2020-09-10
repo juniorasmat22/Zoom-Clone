@@ -9,8 +9,9 @@ Si el usuario niega el permiso, o si el recurso multimedia no es válido,
  NotFoundError respectivamente. Nótese que es posible que el 
  promise retornado no sea ni resuelto ni rechazado, 
 ya que no se requiere que el usuario tome una decisión.  */
+const socket=io('/');
 const videoGrid=document.getElementById('video-grid');
-console.log(videoGrid);
+//console.log(videoGrid);
 const myVideo=document.createElement('video');
 myVideo.muted=true;
 
@@ -22,7 +23,13 @@ navigator.mediaDevices.getUserMedia({
     myVideoStream=stream;
     addVideoStream(myVideo,stream);
 });
-
+socket.emit('join-room ',ROOM_iD);
+socket.on('user-connected',()=>{
+    connectToNewUser();
+});
+const connectToNewUser=()=>{
+    console.log('new user');
+}
 const addVideoStream=(video,stream)=>{
     video.srcObject = stream
     video.addEventListener('loadedmetadata', () => {
