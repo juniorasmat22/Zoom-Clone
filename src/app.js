@@ -25,6 +25,7 @@ const {ExpressPeerServer}=require('peer');
 const peerServer=ExpressPeerServer(server,{
     debug:true
 });
+
 app.use('/peerjs',peerServer);
 io.on('connection', socket => {
     socket.on('join-room', (roomId,userId) => {
